@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1c8">
+  <meta name="description" content="Frases motivacionais com a dose certa de humor ácido para seguir em frente, querendo ou não.">
+  <title>Vai. Só vai. — Motivação sem açúcar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f1c8;
+      --ink: #20231e;
+      --muted: #67685f;
+      --line: #d8cf9d;
+      --acid: #d5f45b;
+      --tomato: #f16c4a;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Space Grotesk', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(rgba(32, 35, 30, 0.09) 0.8px, transparent 0.8px);
+      background-size: 9px 9px;
+      font-family: var(--sans);
+    }
+
+    button, select { font: inherit; }
+    button { color: inherit; }
+
+    .shell { width: min(1120px, 100% - 48px); margin: 0 auto; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      border-bottom: 1px solid var(--line);
+      font: 500 11px var(--mono);
+      text-transform: uppercase;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-mark { width: 13px; height: 13px; background: var(--tomato); transform: rotate(-12deg); }
+    .top-note { color: var(--muted); }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 70px;
+      padding: 72px 0 64px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 23px;
+      color: var(--muted);
+      font: 500 11px var(--mono);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before { width: 28px; height: 1px; background: var(--tomato); content: ''; }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font: 600 clamp(48px, 7vw, 88px)/.94 var(--display);
+      letter-spacing: 0;
+    }
+
+    h1 span { color: var(--tomato); }
+
+    .intro { max-width: 440px; margin: 23px 0 39px; color: #53564e; font-size: 15px; line-height: 1.65; }
+
+    .quote-panel {
+      position: relative;
+      min-height: 250px;
+      padding: 34px 36px 29px;
+      border: 1px solid #d9c400;
+      background: #ffeb3b;
+      box-shadow: 2px 4px 0 #d9c400, 5px 9px 14px #20231e24;
+      rotate: -1deg;
+      animation: arrive .45s ease-out both;
+    }
+
+    .quote-panel::before {
+      position: absolute;
+      top: -10px;
+      right: 26px;
+      width: 58px;
+      height: 20px;
+      border: 1px solid #d8d1a9;
+      background: #fff8c4b8;
+      content: '';
+      transform: rotate(3deg);
+    }
+
+    .quote-label { margin: 0 0 23px; font: 500 10px var(--mono); text-transform: uppercase; }
+
+    blockquote {
+      max-width: 650px;
+      margin: 0;
+      font: 500 clamp(25px, 3vw, 38px)/1.16 var(--display);
+      letter-spacing: 0;
+    }
+
+    .quote-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+    .quote-index { color: #53564e; font: 400 10px var(--mono); }
+    .icon-button {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      padding: 0;
+      place-items: center;
+      border: 1px solid var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background .15s, transform .15s;
+    }
+    .icon-button:hover { background: #ffffff60; transform: translateY(-2px); }
+    .icon-button[aria-pressed="true"] { color: var(--tomato); }
+    .icon-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+
+    .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-top: 30px; }
+    .select-wrap { display: grid; gap: 8px; }
+    .select-wrap label { color: var(--muted); font: 500 10px var(--mono); text-transform: uppercase; }
+    select {
+      min-width: 180px;
+      height: 48px;
+      padding: 0 36px 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .generate {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 19px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font: 600 13px var(--sans);
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .generate:hover { background: var(--tomato); color: var(--ink); }
+    .generate svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+
+    .side { padding-top: 12px; }
+    .side-heading { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 15px; border-bottom: 1px solid var(--ink); }
+    .side-heading h2 { margin: 0; font: 600 15px var(--display); }
+    .count { color: var(--muted); font: 400 10px var(--mono); }
+    .favorites { display: grid; }
+    .empty { padding: 19px 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .favorite-item { display: grid; grid-template-columns: 1fr 30px; gap: 10px; padding: 16px 0; border-bottom: 1px solid var(--line); animation: arrive .3s ease-out both; }
+    .favorite-text { margin: 0; font: 500 14px/1.45 var(--display); }
+    .remove-favorite { width: 30px; height: 30px; justify-self: end; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 18px; }
+    .remove-favorite:hover { color: var(--tomato); }
+
+    .bottomline { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 27px; border-top: 1px solid var(--line); color: var(--muted); font: 400 10px var(--mono); text-transform: uppercase; }
+    .toast { position: fixed; right: 24px; bottom: 24px; padding: 12px 16px; background: var(--ink); color: var(--paper); font: 500 12px var(--mono); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @keyframes arrive { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 36px, 560px); }
+      .topbar { min-height: 64px; }
+      main { grid-template-columns: 1fr; gap: 54px; padding: 51px 0 46px; }
+      h1 { font-size: clamp(51px, 13vw, 76px); }
+      .intro { margin-bottom: 31px; }
+      .quote-panel { min-height: 230px; padding: 28px 23px 24px; }
+      .quote-footer { margin-top: 25px; }
+      .controls { align-items: stretch; }
+      .select-wrap { flex: 1 1 100%; }
+      select { width: 100%; }
+      .generate { flex: 1; }
+      .side { padding-top: 0; }
+      .bottomline { flex-direction: column; gap: 7px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>Vai. Só vai.</span></div>
+      <span class="top-note">Motivação sem açúcar</span>
+    </header>
+
+    <main>
+      <section aria-labelledby="title">
+        <p class="eyebrow">Seu empurrão diário, sem abraço coletivo</p>
+        <h1 id="title">Inspire.<br>Revire os olhos.<br><span>Faça.</span></h1>
+        <p class="intro">Uma dose de incentivo com a delicadeza de uma segunda-feira. Porque às vezes o que falta não é potencial. É parar de negociar com o sofá.</p>
+
+        <article class="quote-panel" aria-live="polite" aria-atomic="true">
+          <p class="quote-label">Uma verdade inconveniente para você</p>
+          <blockquote id="quote">Você não precisa estar com vontade. O boleto também não espera você entrar no clima.</blockquote>
+          <div class="quote-footer">
+            <span class="quote-index" id="quote-index">FRASE 01 / 32</span>
+            <button class="icon-button" id="favorite-button" type="button" aria-label="Salvar nos favoritos" aria-pressed="false" title="Salvar nos favoritos">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <div class="controls">
+          <div class="select-wrap">
+            <label for="category">Escolha seu problema</label>
+            <select id="category">
+              <option value="tudo">De tudo um pouco</option>
+              <option value="procrastinacao">Procrastinação</option>
+              <option value="trabalho">Trabalho & boletos</option>
+              <option value="coragem">Coragem</option>
+              <option value="autoestima">Autoestima</option>
+            </select>
+          </div>
+          <button class="generate" id="generate-button" type="button">
+            <span>Outra, por favor</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg>
+          </button>
+          <button class="icon-button" id="copy-button" type="button" aria-label="Copiar frase" title="Copiar frase">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="1"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <aside class="side" aria-labelledby="favorites-title">
+        <div class="side-heading">
+          <h2 id="favorites-title">Guarde as melhores</h2>
+          <span class="count" id="favorite-count">00 SALVAS</span>
+        </div>
+        <div class="favorites" id="favorites-list" aria-live="polite"></div>
+      </aside>
+    </main>
+
+    <footer class="bottomline">
+      <span>Feito para quem já tentou manifestar e agora quer agir</span>
+      <span>Um dia de cada vez. Que é o que tem.</span>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const phrases = [
+      { category: 'procrastinacao', text: 'Você não precisa estar com vontade. O boleto também não espera você entrar no clima.' },
+      { category: 'procrastinacao', text: 'Adiar também é uma escolha. Só não finja surpresa quando o prazo escolher por você.' },
+      { category: 'procrastinacao', text: 'Comece por cinco minutos. Se odiar, pode parar. Spoiler: você provavelmente vai continuar.' },
+      { category: 'procrastinacao', text: 'Seu eu do futuro mandou lembranças. E uma lista de coisas que você jurou fazer ontem.' },
+      { category: 'procrastinacao', text: 'A inspiração está a caminho. Enquanto isso, que tal começar sem ela?' },
+      { category: 'procrastinacao', text: 'Você já pensou mais tempo em começar do que levaria para terminar. Curioso, né?' },
+      { category: 'procrastinacao', text: 'Não precisa resolver a vida toda hoje. Só aquela tarefa que você está evitando desde terça.' },
+      { category: 'trabalho', text: 'Trabalhe pelos seus sonhos. O chefe já está trabalhando pelos dele, aparentemente.' },
+      { category: 'trabalho', text: 'Um passo de cada vez. De preferência, na direção de pagar os boletos.' },
+      { category: 'trabalho', text: 'Você é capaz de coisas incríveis. Inclusive responder aquele e-mail que está criando teia.' },
+      { category: 'trabalho', text: 'Seu esforço vai dar frutos. Talvez não hoje, mas o aluguel também não aceita frutas.' },
+      { category: 'trabalho', text: 'Faça o seu melhor. E depois registre tudo, porque reconhecimento espontâneo anda em falta.' },
+      { category: 'trabalho', text: 'O sucesso não cai do céu. Se caísse, provavelmente viria com uma reunião de alinhamento.' },
+      { category: 'trabalho', text: 'Você sobreviveu a 100% dos dias difíceis. Estatística excelente, currículo impecável.' },
+      { category: 'coragem', text: 'Coragem não é não ter medo. É ir com medo e reclamar do caminho depois.' },
+      { category: 'coragem', text: 'O não você já tem. Buscar o sim dá um pouco mais de trabalho, infelizmente.' },
+      { category: 'coragem', text: 'Você não precisa saber como tudo vai terminar. Nem série boa revela o final no episódio um.' },
+      { category: 'coragem', text: 'A zona de conforto é confortável mesmo. Esse é meio que o problema.' },
+      { category: 'coragem', text: 'Vá lá e tente. A vergonha passa. A curiosidade sobre o que teria acontecido demora bem mais.' },
+      { category: 'coragem', text: 'Ser iniciante é temporário. Não começar pode virar personalidade.' },
+      { category: 'coragem', text: 'Você já encarou coisa pior. Algumas com menos café e decisões bem questionáveis.' },
+      { category: 'autoestima', text: 'Você não precisa ser perfeito. Até o Wi-Fi cai e ainda assim todo mundo depende dele.' },
+      { category: 'autoestima', text: 'Pare de se comparar com quem está em outro capítulo. Você nem terminou de ler o seu.' },
+      { category: 'autoestima', text: 'Você merece ocupar espaço. A planta da sala ocupa e ninguém exige que ela tenha um plano de carreira.' },
+      { category: 'autoestima', text: 'Nem todo dia você vai brilhar. Às vezes, só não piorar já é um resultado respeitável.' },
+      { category: 'autoestima', text: 'Você está fazendo o que pode com o que tem. E não, a versão idealizada do Instagram não conta.' },
+      { category: 'autoestima', text: 'Seu valor não depende da sua produtividade. Mas terminar aquela tarefa ainda seria ótimo.' },
+      { category: 'autoestima', text: 'Você é uma obra em andamento. Algumas reformas demoram e fazem barulho mesmo.' },
+      { category: 'coragem', text: 'Não precisa ser destemido. Só precisa parar de deixar o medo marcar todos os compromissos.' },
+      { category: 'trabalho', text: 'Consistência vence talento. Principalmente quando o talento está vendo vídeo de receita há duas horas.' },
+      { category: 'procrastinacao', text: 'O primeiro passo é o mais difícil. O segundo é responder por que você abriu outra aba.' },
+      { category: 'autoestima', text: 'Você chegou até aqui sem manual. Convenhamos, está se saindo surpreendentemente bem.' }
+    ];
+
+    const quoteElement = document.querySelector('#quote');
+    const quoteIndex = document.querySelector('#quote-index');
+    const categorySelect = document.querySelector('#category');
+    const favoriteButton = document.querySelector('#favorite-button');
+    const favoritesList = document.querySelector('#favorites-list');
+    const favoriteCount = document.querySelector('#favorite-count');
+    const toast = document.querySelector('#toast');
+    let currentPhrase = phrases[0];
+    let toastTimer;
+
+    function loadFavorites() {
+      try {
+        const stored = JSON.parse(localStorage.getItem('vai-so-vai-favorites') || '[]');
+        return Array.isArray(stored) ? stored.filter((item) => typeof item === 'string') : [];
+      } catch {
+        return [];
+      }
+    }
+
+    let favorites = loadFavorites();
+
+    function saveFavorites() {
+      try {
+        localStorage.setItem('vai-so-vai-favorites', JSON.stringify(favorites));
+      } catch {
+        showToast('Não foi possível salvar neste navegador.');
+      }
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1900);
+    }
+
+    function updateFavoriteButton() {
+      const isFavorite = favorites.includes(currentPhrase.text);
+      favoriteButton.setAttribute('aria-pressed', String(isFavorite));
+      favoriteButton.setAttribute('aria-label', isFavorite ? 'Remover dos favoritos' : 'Salvar nos favoritos');
+      favoriteButton.title = isFavorite ? 'Remover dos favoritos' : 'Salvar nos favoritos';
+    }
+
+    function renderFavorites() {
+      favoritesList.replaceChildren();
+      favoriteCount.textContent = `${String(favorites.length).padStart(2, '0')} ${favorites.length === 1 ? 'SALVA' : 'SALVAS'}`;
+
+      if (!favorites.length) {
+        const empty = document.createElement('p');
+        empty.className = 'empty';
+        empty.textContent = 'Nenhuma frase salva. Ainda dá tempo de se apegar a uma.';
+        favoritesList.append(empty);
+        return;
+      }
+
+      favorites.forEach((text) => {
+        const item = document.createElement('div');
+        item.className = 'favorite-item';
+        const content = document.createElement('p');
+        content.className = 'favorite-text';
+        content.textContent = text;
+        const remove = document.createElement('button');
+        remove.className = 'remove-favorite';
+        remove.type = 'button';
+        remove.setAttribute('aria-label', 'Remover frase dos favoritos');
+        remove.title = 'Remover frase';
+        remove.textContent = '×';
+        remove.addEventListener('click', () => {
+          favorites = favorites.filter((favorite) => favorite !== text);
+          saveFavorites();
+          renderFavorites();
+          updateFavoriteButton();
+        });
+        item.append(content, remove);
+        favoritesList.append(item);
+      });
+    }
+
+    function generatePhrase() {
+      const category = categorySelect.value;
+      const options = phrases.filter((phrase) => category === 'tudo' || phrase.category === category);
+      const available = options.filter((phrase) => phrase.text !== currentPhrase.text);
+      const pool = available.length ? available : options;
+      currentPhrase = pool[Math.floor(Math.random() * pool.length)];
+      quoteElement.textContent = currentPhrase.text;
+      quoteIndex.textContent = `FRASE ${String(phrases.indexOf(currentPhrase) + 1).padStart(2, '0')} / ${phrases.length}`;
+      const panel = document.querySelector('.quote-panel');
+      panel.style.animation = 'none';
+      void panel.offsetWidth;
+      panel.style.animation = '';
+      updateFavoriteButton();
+    }
+
+    document.querySelector('#generate-button').addEventListener('click', generatePhrase);
+    categorySelect.addEventListener('change', generatePhrase);
+    favoriteButton.addEventListener('click', () => {
+      if (favorites.includes(currentPhrase.text)) {
+        favorites = favorites.filter((favorite) => favorite !== currentPhrase.text);
+        showToast('Frase removida dos favoritos.');
+      } else {
+        favorites = [currentPhrase.text, ...favorites];
+        showToast('Frase salva. Bom gosto, apesar de tudo.');
+      }
+      saveFavorites();
+      renderFavorites();
+      updateFavoriteButton();
+    });
+    document.querySelector('#copy-button').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(currentPhrase.text);
+        showToast('Frase copiada. Espalhe a sabedoria.');
+      } catch {
+        showToast('Seu navegador não liberou a cópia.');
+      }
+    });
+
+    renderFavorites();
+    updateFavoriteButton();
+  </script>
+</body>
+</html>
